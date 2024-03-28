@@ -1,0 +1,164 @@
+version: "3"
+
+services:
+  runner1: &runner
+    image: gitea/act_runner:nightly
+    environment: &runner_env
+      CONFIG_FILE: /config.yaml
+      GITEA_INSTANCE_URL: "http://server:3000"
+      GITEA_RUNNER_REGISTRATION_TOKEN: "${REGISTRATION_TOKEN}"
+      GITEA_RUNNER_NAME: "Runner 1"
+    volumes:
+      - ./config/gitea-runner/config.yaml:/config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/runner1:/data
+  runner2:
+    <<: *runner
+    environment:
+      <<: *runner_env
+      GITEA_RUNNER_NAME: "Runner 2"
+    volumes:
+      - ./config/gitea-runner/config.yaml:/config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/runner2:/data
+  runner3:
+    <<: *runner
+    environment:
+      <<: *runner_env
+      GITEA_RUNNER_NAME: "Runner 3"
+    volumes:
+      - ./config/gitea-runner/config.yaml:/config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/runner3:/data
+  runner4:
+    <<: *runner
+    environment:
+      <<: *runner_env
+      GITEA_RUNNER_NAME: "Runner 4"
+    volumes:
+      - ./config/gitea-runner/config.yaml:/config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/runner4:/data
+  runner5:
+    <<: *runner
+    environment:
+      <<: *runner_env
+      GITEA_RUNNER_NAME: "Runner 5"
+    volumes:
+      - ./config/gitea-runner/config.yaml:/config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/runner5:/data
+  runner6:
+    <<: *runner
+    environment:
+      <<: *runner_env
+      GITEA_RUNNER_NAME: "Runner 6"
+    volumes:
+      - ./config/gitea-runner/config.yaml:/config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/runner6:/data
+  runner7:
+    <<: *runner
+    environment:
+      <<: *runner_env
+      GITEA_RUNNER_NAME: "Runner 7"
+    volumes:
+      - ./config/gitea-runner/config.yaml:/config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/runner7:/data
+  runner8:
+    <<: *runner
+    environment:
+      <<: *runner_env
+      GITEA_RUNNER_NAME: "Runner 8"
+    volumes:
+      - ./config/gitea-runner/config.yaml:/config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/runner8:/data
+  traefik:
+    image: traefik:v2.11.0
+    container_name: traefik
+    restart: unless-stopped
+    command:
+      - '--log.level=INFO'
+      - '--api.insecure=true'
+      - '--providers.docker=true'
+      - '--providers.docker.exposedbydefault=false'
+      - '--entrypoints.web.address=:80'
+      - "--providers.docker.defaultRule=HostRegexp(`{_:{{ index .Labels \"com.docker.compose.service\" }}\\..*}`)"
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.traefik.rule: HostRegexp(`{_:traefik\..*}`)
+      traefik.http.services.traefik.loadbalancer.server.port: 8080
+  verdaccio:
+    image: verdaccio/verdaccio
+    container_name: 'verdaccio'
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.verdaccio.rule: HostRegexp(`{_:verdaccio\..*}`)
+      traefik.http.services.verdaccio.loadbalancer.server.port: 4873
+    environment:
+      - VERDACCIO_PORT=4873
+    ports:
+      - '4873:4873'
+    volumes:
+      - './data/verdaccio:/verdaccio/storage'
+      - './config/verdaccio:/verdaccio/conf'
+  server:
+    image: gitea/gitea:1.21.7
+    container_name: gitea
+    restart: always
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.gitea.rule: HostRegexp(`{_:gitea\..*}`)
+      traefik.http.services.gitea.loadbalancer.server.port: 3000
+    volumes:
+      - ./data/gitea:/data/gitea
+      - ./config/gitea:/data/gitea/conf/
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3000:3000"
+      - "222:2222"
+    depends_on:
+       - db
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+       - MYSQL_ROOT_PASSWORD=gitea
+       - MYSQL_USER=gitea
+       - MYSQL_PASSWORD=gitea
+       - MYSQL_DATABASE=gitea
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+  competitor_db:
+    image: mysql:8
+    restart: always
+    environment:
+       - MYSQL_ROOT_PASSWORD=root
+       - MYSQL_USER=root
+    volumes:
+      - ./data/competitor-mysql:/var/lib/mysql
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor-db.rule: HostRegexp(`{_:db\..*}`)
+      traefik.http.services.competitor-db.loadbalancer.server.port: 3306
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: 'db'
+      PMA_PORT: 3306
+      PMA_USER: 'root'
+      PMA_PASSWORD: 'root'
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.pma.rule: HostRegexp(`{_:pma\..*}`)
+      traefik.http.services.pma.loadbalancer.server.port: 80
