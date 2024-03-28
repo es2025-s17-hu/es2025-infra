@@ -1,1 +1,2 @@
 docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username httpadmin --password admin --email me@example.com --admin"
+docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username jani --password admin --email jani@httpf.hu"

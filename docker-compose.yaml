@@ -1,11 +1,18 @@
 version: "3"
 
+networks:
+  gitea:
+    name: gitea
+    driver: bridge
+
 services:
   runner1: &runner
-    image: gitea/act_runner:nightly
+    image: gitea/act_runner:latest
+    networks:
+      - gitea
     environment: &runner_env
       CONFIG_FILE: /config.yaml
-      GITEA_INSTANCE_URL: "http://server:3000"
+      GITEA_INSTANCE_URL: "http://gitea:3000"
       GITEA_RUNNER_REGISTRATION_TOKEN: "${REGISTRATION_TOKEN}"
       GITEA_RUNNER_NAME: "Runner 1"
     volumes:
@@ -79,6 +86,9 @@ services:
     image: traefik:v2.11.0
     container_name: traefik
     restart: unless-stopped
+    networks:
+      - gitea
+      - default
     command:
       - '--log.level=INFO'
       - '--api.insecure=true'
@@ -109,10 +119,12 @@ services:
     volumes:
       - './data/verdaccio:/verdaccio/storage'
       - './config/verdaccio:/verdaccio/conf'
-  server:
-    image: gitea/gitea:1.21.7
+  gitea:
     container_name: gitea
+    image: gitea/gitea:1.21.7
     restart: always
+    networks:
+      - gitea
     labels:
       traefik.enable: 'true'
       traefik.http.routers.gitea.rule: HostRegexp(`{_:gitea\..*}`)
@@ -130,6 +142,8 @@ services:
   db:
     image: mysql:8
     restart: always
+    networks:
+      - gitea
     environment:
        - MYSQL_ROOT_PASSWORD=gitea
        - MYSQL_USER=gitea
@@ -142,9 +156,9 @@ services:
     restart: always
     environment:
        - MYSQL_ROOT_PASSWORD=root
-       - MYSQL_USER=root
     volumes:
       - ./data/competitor-mysql:/var/lib/mysql
+      - "./config/competitor_mysql/competitors.sql:/docker-entrypoint-initdb.d/1.sql"
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor-db.rule: HostRegexp(`{_:db\..*}`)
@@ -154,11 +168,21 @@ services:
     depends_on:
       - db
     environment:
-      PMA_HOST: 'db'
+      PMA_HOST: 'competitor_db'
       PMA_PORT: 3306
-      PMA_USER: 'root'
-      PMA_PASSWORD: 'root'
     labels:
       traefik.enable: 'true'
       traefik.http.routers.pma.rule: HostRegexp(`{_:pma\..*}`)
       traefik.http.services.pma.loadbalancer.server.port: 80
+#  competitor1:
+#    image: gitea/competitor1:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor1.rule: HostRegexp(`{_:competitor1\..*}`)
+#      traefik.http.services.competitor1.loadbalancer.server.port: 3000
+#  competitor2:
+#    image: gitea/competitor2:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor2.rule: HostRegexp(`{_:competitor2\..*}`)
+#      traefik.http.services.competitor2.loadbalancer.server.port: 3000
