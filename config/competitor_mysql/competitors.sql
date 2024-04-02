@@ -1,20 +1,21 @@
-CREATE DATABASE IF NOT EXISTS competitor1;
-CREATE DATABASE IF NOT EXISTS competitor2;
-CREATE DATABASE IF NOT EXISTS competitor3;
-CREATE DATABASE IF NOT EXISTS competitor4;
-CREATE DATABASE IF NOT EXISTS competitor5;
-CREATE DATABASE IF NOT EXISTS competitor6;
+CREATE DATABASE IF NOT EXISTS jgenkzym;
+CREATE DATABASE IF NOT EXISTS wje4rmtr;
+CREATE DATABASE IF NOT EXISTS zn62jyyu;
+CREATE DATABASE IF NOT EXISTS 2wdx6yex;
+CREATE DATABASE IF NOT EXISTS 5ubuuepk;
+CREATE DATABASE IF NOT EXISTS r2z4hbn7;
 
-CREATE USER 'competitor1'@'%' IDENTIFIED BY 'competitor1';
-CREATE USER 'competitor2'@'%' IDENTIFIED BY 'competitor2';
-CREATE USER 'competitor3'@'%' IDENTIFIED BY 'competitor3';
-CREATE USER 'competitor4'@'%' IDENTIFIED BY 'competitor4';
-CREATE USER 'competitor5'@'%' IDENTIFIED BY 'competitor5';
-CREATE USER 'competitor6'@'%' IDENTIFIED BY 'competitor6';
 
-GRANT ALL PRIVILEGES ON competitor1.* TO 'competitor1'@'%';
-GRANT ALL PRIVILEGES ON competitor2.* TO 'competitor2'@'%';
-GRANT ALL PRIVILEGES ON competitor3.* TO 'competitor3'@'%';
-GRANT ALL PRIVILEGES ON competitor4.* TO 'competitor4'@'%';
-GRANT ALL PRIVILEGES ON competitor5.* TO 'competitor5'@'%';
-GRANT ALL PRIVILEGES ON competitor6.* TO 'competitor6'@'%';
+CREATE USER 'jgenkzym'@'%' IDENTIFIED BY 'K7QhhFz7';
+CREATE USER 'wje4rmtr'@'%' IDENTIFIED BY 'BK6Xnruq';
+CREATE USER 'zn62jyyu'@'%' IDENTIFIED BY 'Z98KmycL';
+CREATE USER '2wdx6yex'@'%' IDENTIFIED BY 'mZNJLPDP';
+CREATE USER '5ubuuepk'@'%' IDENTIFIED BY 'kndSqTwc';
+CREATE USER 'r2z4hbn7'@'%' IDENTIFIED BY 'MhDpQmEp';
+
+GRANT ALL PRIVILEGES ON jgenkzym.* TO 'jgenkzym'@'%';
+GRANT ALL PRIVILEGES ON wje4rmtr.* TO 'wje4rmtr'@'%';
+GRANT ALL PRIVILEGES ON zn62jyyu.* TO 'zn62jyyu'@'%';
+GRANT ALL PRIVILEGES ON 2wdx6yex.* TO '2wdx6yex'@'%';
+GRANT ALL PRIVILEGES ON 5ubuuepk.* TO '5ubuuepk'@'%';
+GRANT ALL PRIVILEGES ON r2z4hbn7.* TO 'r2z4hbn7'@'%';

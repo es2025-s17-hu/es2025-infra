@@ -90,20 +90,29 @@ services:
       - gitea
       - default
     command:
-      - '--log.level=INFO'
-      - '--api.insecure=true'
+      - '--log.level=DEBUG'
+      # - '--api.insecure=true'
       - '--providers.docker=true'
       - '--providers.docker.exposedbydefault=false'
       - '--entrypoints.web.address=:80'
+      - "--entrypoints.websecure.address=:443"
       - "--providers.docker.defaultRule=HostRegexp(`{_:{{ index .Labels \"com.docker.compose.service\" }}\\..*}`)"
+      - "--entrypoints.websecure.http.tls.certresolver=myresolver"
+      - "--certificatesresolvers.myresolver.acme.email=my@email.com"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "--serversTransport.insecureSkipVerify=true"
     ports:
       - '80:80'
       - '443:443'
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
+      - './letsencrypt:/letsencrypt'
     labels:
       traefik.enable: 'true'
       traefik.http.routers.traefik.rule: HostRegexp(`{_:traefik\..*}`)
+      traefik.http.routers.traefik.entrypoints: websecure
+      traefik.http.routers.traefik.tls: true
       traefik.http.services.traefik.loadbalancer.server.port: 8080
   verdaccio:
     image: verdaccio/verdaccio
@@ -111,6 +120,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.verdaccio.rule: HostRegexp(`{_:verdaccio\..*}`)
+      traefik.http.routers.verdaccio.entrypoints: websecure
+      traefik.http.routers.verdaccio.tls: true
       traefik.http.services.verdaccio.loadbalancer.server.port: 4873
     environment:
       - VERDACCIO_PORT=4873
@@ -128,6 +139,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.gitea.rule: HostRegexp(`{_:gitea\..*}`)
+      traefik.http.routers.gitea.entrypoints: websecure
+      traefik.http.routers.gitea.tls: true
       traefik.http.services.gitea.loadbalancer.server.port: 3000
     volumes:
       - ./data/gitea:/data/gitea
@@ -174,15 +187,122 @@ services:
       traefik.enable: 'true'
       traefik.http.routers.pma.rule: HostRegexp(`{_:pma\..*}`)
       traefik.http.services.pma.loadbalancer.server.port: 80
-#  competitor1:
-#    image: gitea/competitor1:latest
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 10 competitor1 competitor2
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.watchtower.rule: HostRegexp(`{_:watchtower\..*}`)
+      traefik.http.services.watchtower.loadbalancer.server.port: 8080
+#  competitor1a:
+#    image: gitea.localhost/jgenkzym/module-a:latest
 #    labels:
 #      traefik.enable: 'true'
-#      traefik.http.routers.competitor1.rule: HostRegexp(`{_:competitor1\..*}`)
-#      traefik.http.services.competitor1.loadbalancer.server.port: 3000
-#  competitor2:
-#    image: gitea/competitor2:latest
+#      traefik.http.routers.competitor1a.rule: HostRegexp(`{_:jgenkzym-module-a\..*}`)
+#      traefik.http.services.competitor1a.loadbalancer.server.port: 3000
+#  competitor1b:
+#    image: gitea.localhost/jgenkzym/module-b:latest
 #    labels:
 #      traefik.enable: 'true'
-#      traefik.http.routers.competitor2.rule: HostRegexp(`{_:competitor2\..*}`)
-#      traefik.http.services.competitor2.loadbalancer.server.port: 3000
+#      traefik.http.routers.competitor1b.rule: HostRegexp(`{_:jgenkzym-module-b\..*}`)
+#      traefik.http.services.competitor1b.loadbalancer.server.port: 3000
+#  competitor1c:
+#    image: gitea.localhost/jgenkzym/module-c:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor1c.rule: HostRegexp(`{_:jgenkzym-module-c\..*}`)
+#      traefik.http.services.competitor1c.loadbalancer.server.port: 3000
+#  competitor2a:
+#    image: gitea.localhost/wje4rmtr/module-a:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor2a.rule: HostRegexp(`{_:wje4rmtr-module-a\..*}`)
+#      traefik.http.services.competitor2a.loadbalancer.server.port: 3000
+#  competitor2b:
+#    image: gitea.localhost/wje4rmtr/module-b:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor2b.rule: HostRegexp(`{_:wje4rmtr-module-b\..*}`)
+#      traefik.http.services.competitor2b.loadbalancer.server.port: 3000
+#  competitor2c:
+#    image: gitea.localhost/wje4rmtr/module-c:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor2c.rule: HostRegexp(`{_:wje4rmtr-module-c\..*}`)
+#      traefik.http.services.competitor2c.loadbalancer.server.port: 3000
+#  competitor3a:
+#    image: gitea.localhost/zn62jyyu/module-a:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor3a.rule: HostRegexp(`{_:zn62jyyu-module-a\..*}`)
+#      traefik.http.services.competitor3a.loadbalancer.server.port: 3000
+#  competitor3b:
+#    image: gitea.localhost/zn62jyyu/module-b:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor3b.rule: HostRegexp(`{_:zn62jyyu-module-b\..*}`)
+#      traefik.http.services.competitor3b.loadbalancer.server.port: 3000
+#  competitor3c:
+#    image: gitea.localhost/zn62jyyu/module-c:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor3c.rule: HostRegexp(`{_:zn62jyyu-module-c\..*}`)
+#      traefik.http.services.competitor3c.loadbalancer.server.port: 3000
+#  competitor4a:
+#    image: gitea.localhost/2wdx6yex/module-a:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor4a.rule: HostRegexp(`{_:2wdx6yex-module-a\..*}`)
+#      traefik.http.services.competitor4a.loadbalancer.server.port: 3000
+#  competitor4b:
+#    image: gitea.localhost/2wdx6yex/module-b:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor4b.rule: HostRegexp(`{_:2wdx6yex-module-b\..*}`)
+#      traefik.http.services.competitor4b.loadbalancer.server.port: 3000
+#  competitor4c:
+#    image: gitea.localhost/2wdx6yex/module-c:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor4c.rule: HostRegexp(`{_:2wdx6yex-module-c\..*}`)
+#      traefik.http.services.competitor4c.loadbalancer.server.port: 3000
+#  competitor5a:
+#    image: gitea.localhost/5ubuuepk/module-a:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor5a.rule: HostRegexp(`{_:5ubuuepk-module-a\..*}`)
+#      traefik.http.services.competitor5a.loadbalancer.server.port: 3000
+#  competitor5b:
+#    image: gitea.localhost/5ubuuepk/module-b:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor5b.rule: HostRegexp(`{_:5ubuuepk-module-b\..*}`)
+#      traefik.http.services.competitor5b.loadbalancer.server.port: 3000
+#  competitor5c:
+#    image: gitea.localhost/5ubuuepk/module-c:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor5c.rule: HostRegexp(`{_:5ubuuepk-module-c\..*}`)
+#      traefik.http.services.competitor5c.loadbalancer.server.port: 3000
+#  competitor6a:
+#    image: gitea.localhost/r2z4hbn7/module-a:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor6a.rule: HostRegexp(`{_:r2z4hbn7-module-a\..*}`)
+#      traefik.http.services.competitor6a.loadbalancer.server.port: 3000
+#  competitor6b:
+#    image: gitea.localhost/r2z4hbn7/module-b:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor6b.rule: HostRegexp(`{_:r2z4hbn7-module-b\..*}`)
+#      traefik.http.services.competitor6b.loadbalancer.server.port: 3000
+#  competitor6c:
+#    image: gitea.localhost/r2z4hbn7/module-c:latest
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.competitor6c.rule: HostRegexp(`{_:r2z4hbn7-module-c\..*}`)
+#      traefik.http.services.competitor6c.loadbalancer.server.port: 3000
