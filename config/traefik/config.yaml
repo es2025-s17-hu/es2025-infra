@@ -1,0 +1,6 @@
+tls:
+  stores:
+    default:
+      defaultCertificate:
+        certFile: /etc/certs/traefik-cert.pem
+        keyFile: /etc/certs/traefik-key.pem
