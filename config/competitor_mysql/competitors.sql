@@ -20,4 +20,4 @@ GRANT ALL PRIVILEGES ON `competitor-6513`.* TO 'competitor-6513'@'%';
 GRANT ALL PRIVILEGES ON `competitor-2494`.* TO 'competitor-2494'@'%';
 GRANT ALL PRIVILEGES ON `competitor-6455`.* TO 'competitor-6455'@'%';
 GRANT ALL PRIVILEGES ON `competitor-9546`.* TO 'competitor-9546'@'%';
-GRANT ALL PRIVILEGES ON `competitor-9546`.* TO 'competitor-9999'@'%';
+GRANT ALL PRIVILEGES ON `competitor-9999`.* TO 'competitor-9999'@'%';
