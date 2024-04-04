@@ -1,3 +1,4 @@
+services:
   competitor1a:
     container_name: competitor1a
     image: gitea.dineease.com/competitor-4621/module-a:latest
