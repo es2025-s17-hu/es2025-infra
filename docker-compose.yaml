@@ -210,129 +210,129 @@ services:
       traefik.enable: 'true'
       traefik.http.routers.watchtower.rule: HostRegexp(`{_:watchtower\..*}`)
       traefik.http.services.watchtower.loadbalancer.server.port: 8080
-  # competitor1a:
-  #   container_name: competitor1a
-  #   image: gitea.dineease.com/jgenkzym/module-a:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor1a.rule: HostRegexp(`{_:jgenkzym-module-a\..*}`)
-  #     traefik.http.services.competitor1a.loadbalancer.server.port: 80
-  # competitor1b:
-  #   container_name: competitor1b
-  #   image: gitea.dineease.com/jgenkzym/module-b:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor1b.rule: HostRegexp(`{_:jgenkzym-module-b\..*}`)
-  #     traefik.http.services.competitor1b.loadbalancer.server.port: 80
-  # competitor1c:
-  #   container_name: competitor1c
-  #   image: gitea.dineease.com/jgenkzym/module-c:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor1c.rule: HostRegexp(`{_:jgenkzym-module-c\..*}`)
-  #     traefik.http.services.competitor1c.loadbalancer.server.port: 80
-  # competitor2a:
-  #   container_name: competitor2a
-  #   image: gitea.dineease.com/wje4rmtr/module-a:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor2a.rule: HostRegexp(`{_:wje4rmtr-module-a\..*}`)
-  #     traefik.http.services.competitor2a.loadbalancer.server.port: 80
-  # competitor2b:
-  #   container_name: competitor2b
-  #   image: gitea.dineease.com/wje4rmtr/module-b:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor2b.rule: HostRegexp(`{_:wje4rmtr-module-b\..*}`)
-  #     traefik.http.services.competitor2b.loadbalancer.server.port: 80
-  # competitor2c:
-  #   container_name: competitor2c
-  #   image: gitea.dineease.com/wje4rmtr/module-c:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor2c.rule: HostRegexp(`{_:wje4rmtr-module-c\..*}`)
-  #     traefik.http.services.competitor2c.loadbalancer.server.port: 80
-  # competitor3a:
-  #   container_name: competitor3a
-  #   image: gitea.dineease.com/zn62jyyu/module-a:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor3a.rule: HostRegexp(`{_:zn62jyyu-module-a\..*}`)
-  #     traefik.http.services.competitor3a.loadbalancer.server.port: 80
-  # competitor3b:
-  #   container_name: competitor3b
-  #   image: gitea.dineease.com/zn62jyyu/module-b:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor3b.rule: HostRegexp(`{_:zn62jyyu-module-b\..*}`)
-  #     traefik.http.services.competitor3b.loadbalancer.server.port: 80
-  # competitor3c:
-  #   container_name: competitor3c
-  #   image: gitea.dineease.com/zn62jyyu/module-c:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor3c.rule: HostRegexp(`{_:zn62jyyu-module-c\..*}`)
-  #     traefik.http.services.competitor3c.loadbalancer.server.port: 80
-  # competitor4a:
-  #   container_name: competitor4a
-  #   image: gitea.dineease.com/2wdx6yex/module-a:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor4a.rule: HostRegexp(`{_:2wdx6yex-module-a\..*}`)
-  #     traefik.http.services.competitor4a.loadbalancer.server.port: 80
-  # competitor4b:
-  #   container_name: competitor4b
-  #   image: gitea.dineease.com/2wdx6yex/module-b:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor4b.rule: HostRegexp(`{_:2wdx6yex-module-b\..*}`)
-  #     traefik.http.services.competitor4b.loadbalancer.server.port: 80
-  # competitor4c:
-  #   container_name: competitor4c
-  #   image: gitea.dineease.com/2wdx6yex/module-c:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor4c.rule: HostRegexp(`{_:2wdx6yex-module-c\..*}`)
-  #     traefik.http.services.competitor4c.loadbalancer.server.port: 80
-  # competitor5a:
-  #   container_name: competitor5a
-  #   image: gitea.dineease.com/5ubuuepk/module-a:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor5a.rule: HostRegexp(`{_:5ubuuepk-module-a\..*}`)
-  #     traefik.http.services.competitor5a.loadbalancer.server.port: 80
-  # competitor5b:
-  #   container_name: competitor5b
-  #   image: gitea.dineease.com/5ubuuepk/module-b:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor5b.rule: HostRegexp(`{_:5ubuuepk-module-b\..*}`)
-  #     traefik.http.services.competitor5b.loadbalancer.server.port: 80
-  # competitor5c:
-  #   container_name: competitor5c
-  #   image: gitea.dineease.com/5ubuuepk/module-c:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor5c.rule: HostRegexp(`{_:5ubuuepk-module-c\..*}`)
-  #     traefik.http.services.competitor5c.loadbalancer.server.port: 80
-  # competitor6a:
-  #   container_name: competitor6a
-  #   image: gitea.dineease.com/r2z4hbn7/module-a:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor6a.rule: HostRegexp(`{_:r2z4hbn7-module-a\..*}`)
-  #     traefik.http.services.competitor6a.loadbalancer.server.port: 80
-  # competitor6b:
-  #   container_name: competitor6b
-  #   image: gitea.dineease.com/r2z4hbn7/module-b:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor6b.rule: HostRegexp(`{_:r2z4hbn7-module-b\..*}`)
-  #     traefik.http.services.competitor6b.loadbalancer.server.port: 80
-  # competitor6c:
-  #   container_name: competitor6c
-  #   image: gitea.dineease.com/r2z4hbn7/module-c:latest
-  #   labels:
-  #     traefik.enable: 'true'
-  #     traefik.http.routers.competitor6c.rule: HostRegexp(`{_:r2z4hbn7-module-c\..*}`)
-  #     traefik.http.services.competitor6c.loadbalancer.server.port: 80
+  competitor1a:
+    container_name: competitor1a
+    image: gitea.dineease.com/jgenkzym/module-a:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor1a.rule: HostRegexp(`{_:jgenkzym-module-a\..*}`)
+      traefik.http.services.competitor1a.loadbalancer.server.port: 80
+  competitor1b:
+    container_name: competitor1b
+    image: gitea.dineease.com/jgenkzym/module-b:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor1b.rule: HostRegexp(`{_:jgenkzym-module-b\..*}`)
+      traefik.http.services.competitor1b.loadbalancer.server.port: 80
+  competitor1c:
+    container_name: competitor1c
+    image: gitea.dineease.com/jgenkzym/module-c:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor1c.rule: HostRegexp(`{_:jgenkzym-module-c\..*}`)
+      traefik.http.services.competitor1c.loadbalancer.server.port: 80
+  competitor2a:
+    container_name: competitor2a
+    image: gitea.dineease.com/wje4rmtr/module-a:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor2a.rule: HostRegexp(`{_:wje4rmtr-module-a\..*}`)
+      traefik.http.services.competitor2a.loadbalancer.server.port: 80
+  competitor2b:
+    container_name: competitor2b
+    image: gitea.dineease.com/wje4rmtr/module-b:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor2b.rule: HostRegexp(`{_:wje4rmtr-module-b\..*}`)
+      traefik.http.services.competitor2b.loadbalancer.server.port: 80
+  competitor2c:
+    container_name: competitor2c
+    image: gitea.dineease.com/wje4rmtr/module-c:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor2c.rule: HostRegexp(`{_:wje4rmtr-module-c\..*}`)
+      traefik.http.services.competitor2c.loadbalancer.server.port: 80
+  competitor3a:
+    container_name: competitor3a
+    image: gitea.dineease.com/zn62jyyu/module-a:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor3a.rule: HostRegexp(`{_:zn62jyyu-module-a\..*}`)
+      traefik.http.services.competitor3a.loadbalancer.server.port: 80
+  competitor3b:
+    container_name: competitor3b
+    image: gitea.dineease.com/zn62jyyu/module-b:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor3b.rule: HostRegexp(`{_:zn62jyyu-module-b\..*}`)
+      traefik.http.services.competitor3b.loadbalancer.server.port: 80
+  competitor3c:
+    container_name: competitor3c
+    image: gitea.dineease.com/zn62jyyu/module-c:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor3c.rule: HostRegexp(`{_:zn62jyyu-module-c\..*}`)
+      traefik.http.services.competitor3c.loadbalancer.server.port: 80
+  competitor4a:
+    container_name: competitor4a
+    image: gitea.dineease.com/2wdx6yex/module-a:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor4a.rule: HostRegexp(`{_:2wdx6yex-module-a\..*}`)
+      traefik.http.services.competitor4a.loadbalancer.server.port: 80
+  competitor4b:
+    container_name: competitor4b
+    image: gitea.dineease.com/2wdx6yex/module-b:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor4b.rule: HostRegexp(`{_:2wdx6yex-module-b\..*}`)
+      traefik.http.services.competitor4b.loadbalancer.server.port: 80
+  competitor4c:
+    container_name: competitor4c
+    image: gitea.dineease.com/2wdx6yex/module-c:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor4c.rule: HostRegexp(`{_:2wdx6yex-module-c\..*}`)
+      traefik.http.services.competitor4c.loadbalancer.server.port: 80
+  competitor5a:
+    container_name: competitor5a
+    image: gitea.dineease.com/5ubuuepk/module-a:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor5a.rule: HostRegexp(`{_:5ubuuepk-module-a\..*}`)
+      traefik.http.services.competitor5a.loadbalancer.server.port: 80
+  competitor5b:
+    container_name: competitor5b
+    image: gitea.dineease.com/5ubuuepk/module-b:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor5b.rule: HostRegexp(`{_:5ubuuepk-module-b\..*}`)
+      traefik.http.services.competitor5b.loadbalancer.server.port: 80
+  competitor5c:
+    container_name: competitor5c
+    image: gitea.dineease.com/5ubuuepk/module-c:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor5c.rule: HostRegexp(`{_:5ubuuepk-module-c\..*}`)
+      traefik.http.services.competitor5c.loadbalancer.server.port: 80
+  competitor6a:
+    container_name: competitor6a
+    image: gitea.dineease.com/r2z4hbn7/module-a:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor6a.rule: HostRegexp(`{_:r2z4hbn7-module-a\..*}`)
+      traefik.http.services.competitor6a.loadbalancer.server.port: 80
+  competitor6b:
+    container_name: competitor6b
+    image: gitea.dineease.com/r2z4hbn7/module-b:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor6b.rule: HostRegexp(`{_:r2z4hbn7-module-b\..*}`)
+      traefik.http.services.competitor6b.loadbalancer.server.port: 80
+  competitor6c:
+    container_name: competitor6c
+    image: gitea.dineease.com/r2z4hbn7/module-c:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor6c.rule: HostRegexp(`{_:r2z4hbn7-module-c\..*}`)
+      traefik.http.services.competitor6c.loadbalancer.server.port: 80
