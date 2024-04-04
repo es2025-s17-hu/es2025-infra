@@ -6,6 +6,7 @@ docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --usern
 docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-2494 --password 2494 --email competitor-2494@httpf.hu --must-change-password=false"
 docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-6455 --password 6455 --email competitor-6455@httpf.hu --must-change-password=false"
 docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-9546 --password 9546 --email competitor-9546@httpf.hu --must-change-password=false"
+docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-9999 --password 9999 --email competitor-9999@httpf.hu --must-change-password=false"
 
 pat=$(curl -X POST -H "Content-Type: application/json" -d '{"name": "PAT", "scopes": ["write:package"]}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/users/httpadmin/tokens --insecure | jq '.sha1')
 
@@ -17,6 +18,7 @@ curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://g
 curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/competitor-2494 --insecure
 curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/competitor-6455 --insecure
 curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/competitor-9546 --insecure
+curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/competitor-9999 --insecure
 
 curl -X PUT -H "Content-Type: application/json" -d '{"data": "$pat"}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/orgs/competitors/actions/secrets/REGISTRY_TOKEN --insecure
 curl -X PUT -H "Content-Type: application/json" -d '{"data": "httpadmin"}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/orgs/competitors/actions/secrets/REGISTRY_USER --insecure
@@ -48,6 +50,10 @@ docker tag nginx:latest gitea.dineease.com/competitor-9546/module-a:latest
 docker tag nginx:latest gitea.dineease.com/competitor-9546/module-b:latest
 docker tag nginx:latest gitea.dineease.com/competitor-9546/module-c:latest
 
+docker tag nginx:latest gitea.dineease.com/competitor-9999/module-a:latest
+docker tag nginx:latest gitea.dineease.com/competitor-9999/module-b:latest
+docker tag nginx:latest gitea.dineease.com/competitor-9999/module-c:latest
+
 docker push gitea.dineease.com/competitor-4621/module-a:latest
 docker push gitea.dineease.com/competitor-4621/module-b:latest
 docker push gitea.dineease.com/competitor-4621/module-c:latest
@@ -72,3 +78,6 @@ docker push gitea.dineease.com/competitor-9546/module-a:latest
 docker push gitea.dineease.com/competitor-9546/module-b:latest
 docker push gitea.dineease.com/competitor-9546/module-c:latest
 
+docker push gitea.dineease.com/competitor-9999/module-a:latest
+docker push gitea.dineease.com/competitor-9999/module-b:latest
+docker push gitea.dineease.com/competitor-9999/module-c:latest
