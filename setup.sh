@@ -1,22 +1,22 @@
 docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username httpadmin --password kiscica17 --email me@example.com --admin"
 
-docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username jgenkzym --password K7QhhFz7 --email jgenkzym@httpf.hu --must-change-password=false"
-docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username wje4rmtr --password BK6Xnruq --email wje4rmtr@httpf.hu --must-change-password=false"
-docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username zn62jyyu --password Z98KmycL --email zn62jyyu@httpf.hu --must-change-password=false"
-docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username 2wdx6yex --password mZNJLPDP --email 2wdx6yex@httpf.hu --must-change-password=false"
-docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username 5ubuuepk --password kndSqTwc --email 5ubuuepk@httpf.hu --must-change-password=false"
-docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username r2z4hbn7 --password MhDpQmEp --email r2z4hbn7@httpf.hu --must-change-password=false"
+docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-4621 --password 4621 --email competitor-4621@httpf.hu --must-change-password=false"
+docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-7552 --password 7552 --email competitor-7552@httpf.hu --must-change-password=false"
+docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-6513 --password 6513 --email competitor-6513@httpf.hu --must-change-password=false"
+docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-2494 --password 2494 --email competitor-2494@httpf.hu --must-change-password=false"
+docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-6455 --password 6455 --email competitor-6455@httpf.hu --must-change-password=false"
+docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-9546 --password 9546 --email competitor-9546@httpf.hu --must-change-password=false"
 
 pat=$(curl -X POST -H "Content-Type: application/json" -d '{"name": "PAT", "scopes": ["write:package"]}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/users/httpadmin/tokens --insecure | jq '.sha1')
 
 curl -X POST -H "Content-Type: application/json" -d '{"username": "competitors", "private": true}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/orgs --insecure
 id=$(curl -X POST -H "Content-Type: application/json" -d '{"name": "competitors", "can_create_org_repo": true, "units_map": {"repo.actions":"read","repo.packages":"none","repo.code":"write","repo.issues":"write","repo.ext_issues":"none","repo.wiki":"admin","repo.pulls":"owner","repo.releases":"none","repo.projects":"none","repo.ext_wiki":"none"}}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/orgs/competitors/teams --insecure | jq '.id')
-curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/jgenkzym --insecure
-curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/wje4rmtr --insecure
-curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/zn62jyyu --insecure
-curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/2wdx6yex --insecure
-curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/5ubuuepk --insecure
-curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/r2z4hbn7 --insecure
+curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/competitor-4621 --insecure
+curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/competitor-7552 --insecure
+curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/competitor-6513 --insecure
+curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/competitor-2494 --insecure
+curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/competitor-6455 --insecure
+curl -X PUT -H "Content-Type: application/json" -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/teams/$id/members/competitor-9546 --insecure
 
 curl -X PUT -H "Content-Type: application/json" -d '{"data": "$pat"}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/orgs/competitors/actions/secrets/REGISTRY_TOKEN --insecure
 curl -X PUT -H "Content-Type: application/json" -d '{"data": "httpadmin"}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/orgs/competitors/actions/secrets/REGISTRY_USER --insecure
@@ -24,51 +24,51 @@ curl -X PUT -H "Content-Type: application/json" -d '{"data": "httpadmin"}' -u ht
 docker login gitea.dineease.com -u httpadmin -p kiscica17
 
 docker pull nginx:latest
-docker tag nginx:latest gitea.dineease.com/jgenkzym/module-a:latest
-docker tag nginx:latest gitea.dineease.com/jgenkzym/module-b:latest
-docker tag nginx:latest gitea.dineease.com/jgenkzym/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitor-4621/module-a:latest
+docker tag nginx:latest gitea.dineease.com/competitor-4621/module-b:latest
+docker tag nginx:latest gitea.dineease.com/competitor-4621/module-c:latest
 
-docker tag nginx:latest gitea.dineease.com/wje4rmtr/module-a:latest
-docker tag nginx:latest gitea.dineease.com/wje4rmtr/module-b:latest
-docker tag nginx:latest gitea.dineease.com/wje4rmtr/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitor-7552/module-a:latest
+docker tag nginx:latest gitea.dineease.com/competitor-7552/module-b:latest
+docker tag nginx:latest gitea.dineease.com/competitor-7552/module-c:latest
 
-docker tag nginx:latest gitea.dineease.com/zn62jyyu/module-a:latest
-docker tag nginx:latest gitea.dineease.com/zn62jyyu/module-b:latest
-docker tag nginx:latest gitea.dineease.com/zn62jyyu/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitor-6513/module-a:latest
+docker tag nginx:latest gitea.dineease.com/competitor-6513/module-b:latest
+docker tag nginx:latest gitea.dineease.com/competitor-6513/module-c:latest
 
-docker tag nginx:latest gitea.dineease.com/2wdx6yex/module-a:latest
-docker tag nginx:latest gitea.dineease.com/2wdx6yex/module-b:latest
-docker tag nginx:latest gitea.dineease.com/2wdx6yex/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitor-2494/module-a:latest
+docker tag nginx:latest gitea.dineease.com/competitor-2494/module-b:latest
+docker tag nginx:latest gitea.dineease.com/competitor-2494/module-c:latest
 
-docker tag nginx:latest gitea.dineease.com/5ubuuepk/module-a:latest
-docker tag nginx:latest gitea.dineease.com/5ubuuepk/module-b:latest
-docker tag nginx:latest gitea.dineease.com/5ubuuepk/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitor-6455/module-a:latest
+docker tag nginx:latest gitea.dineease.com/competitor-6455/module-b:latest
+docker tag nginx:latest gitea.dineease.com/competitor-6455/module-c:latest
 
-docker tag nginx:latest gitea.dineease.com/r2z4hbn7/module-a:latest
-docker tag nginx:latest gitea.dineease.com/r2z4hbn7/module-b:latest
-docker tag nginx:latest gitea.dineease.com/r2z4hbn7/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitor-9546/module-a:latest
+docker tag nginx:latest gitea.dineease.com/competitor-9546/module-b:latest
+docker tag nginx:latest gitea.dineease.com/competitor-9546/module-c:latest
 
-docker push gitea.dineease.com/jgenkzym/module-a:latest
-docker push gitea.dineease.com/jgenkzym/module-b:latest
-docker push gitea.dineease.com/jgenkzym/module-c:latest
+docker push gitea.dineease.com/competitor-4621/module-a:latest
+docker push gitea.dineease.com/competitor-4621/module-b:latest
+docker push gitea.dineease.com/competitor-4621/module-c:latest
 
-docker push gitea.dineease.com/wje4rmtr/module-a:latest
-docker push gitea.dineease.com/wje4rmtr/module-b:latest
-docker push gitea.dineease.com/wje4rmtr/module-c:latest
+docker push gitea.dineease.com/competitor-7552/module-a:latest
+docker push gitea.dineease.com/competitor-7552/module-b:latest
+docker push gitea.dineease.com/competitor-7552/module-c:latest
 
-docker push gitea.dineease.com/zn62jyyu/module-a:latest
-docker push gitea.dineease.com/zn62jyyu/module-b:latest
-docker push gitea.dineease.com/zn62jyyu/module-c:latest
+docker push gitea.dineease.com/competitor-6513/module-a:latest
+docker push gitea.dineease.com/competitor-6513/module-b:latest
+docker push gitea.dineease.com/competitor-6513/module-c:latest
 
-docker push gitea.dineease.com/2wdx6yex/module-a:latest
-docker push gitea.dineease.com/2wdx6yex/module-b:latest
-docker push gitea.dineease.com/2wdx6yex/module-c:latest
+docker push gitea.dineease.com/competitor-2494/module-a:latest
+docker push gitea.dineease.com/competitor-2494/module-b:latest
+docker push gitea.dineease.com/competitor-2494/module-c:latest
 
-docker push gitea.dineease.com/5ubuuepk/module-a:latest
-docker push gitea.dineease.com/5ubuuepk/module-b:latest
-docker push gitea.dineease.com/5ubuuepk/module-c:latest
+docker push gitea.dineease.com/competitor-6455/module-a:latest
+docker push gitea.dineease.com/competitor-6455/module-b:latest
+docker push gitea.dineease.com/competitor-6455/module-c:latest
 
-docker push gitea.dineease.com/r2z4hbn7/module-a:latest
-docker push gitea.dineease.com/r2z4hbn7/module-b:latest
-docker push gitea.dineease.com/r2z4hbn7/module-c:latest
+docker push gitea.dineease.com/competitor-9546/module-a:latest
+docker push gitea.dineease.com/competitor-9546/module-b:latest
+docker push gitea.dineease.com/competitor-9546/module-c:latest
 
