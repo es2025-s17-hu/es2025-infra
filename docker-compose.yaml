@@ -126,8 +126,6 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.verdaccio.rule: HostRegexp(`{_:verdaccio\..*}`)
-      traefik.http.routers.verdaccio.entrypoints: websecure
-      traefik.http.routers.verdaccio.tls: true
       traefik.http.services.verdaccio.loadbalancer.server.port: 4873
     environment:
       - VERDACCIO_PORT=4873
