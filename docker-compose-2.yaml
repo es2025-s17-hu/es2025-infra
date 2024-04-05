@@ -5,6 +5,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor1a.rule: HostRegexp(`{_:competitor-4621-module-a\..*}`)
+      traefik.http.routers.competitor1a.tls: true
+      traefik.http.routers.competitor1a.entrypoint: websecure
       traefik.http.services.competitor1a.loadbalancer.server.port: 80
   competitor1b:
     container_name: competitor1b
@@ -12,6 +14,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor1b.rule: HostRegexp(`{_:competitor-4621-module-b\..*}`)
+      traefik.http.routers.competitor1b.tls: true
+      traefik.http.routers.competitor1b.entrypoint: websecure
       traefik.http.services.competitor1b.loadbalancer.server.port: 80
   competitor1c:
     container_name: competitor1c
@@ -19,6 +23,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor1c.rule: HostRegexp(`{_:competitor-4621-module-c\..*}`)
+      traefik.http.routers.competitor1c.tls: true
+      traefik.http.routers.competitor1c.entrypoint: websecure
       traefik.http.services.competitor1c.loadbalancer.server.port: 80
   competitor2a:
     container_name: competitor2a
@@ -26,6 +32,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor2a.rule: HostRegexp(`{_:competitor-7552-module-a\..*}`)
+      traefik.http.routers.competitor2a.tls: true
+      traefik.http.routers.competitor2a.entrypoint: websecure
       traefik.http.services.competitor2a.loadbalancer.server.port: 80
   competitor2b:
     container_name: competitor2b
@@ -33,6 +41,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor2b.rule: HostRegexp(`{_:competitor-7552-module-b\..*}`)
+      traefik.http.routers.competitor2b.tls: true
+      traefik.http.routers.competitor2b.entrypoint: websecure
       traefik.http.services.competitor2b.loadbalancer.server.port: 80
   competitor2c:
     container_name: competitor2c
@@ -40,6 +50,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor2c.rule: HostRegexp(`{_:competitor-7552-module-c\..*}`)
+      traefik.http.routers.competitor2c.tls: true
+      traefik.http.routers.competitor2c.entrypoint: websecure
       traefik.http.services.competitor2c.loadbalancer.server.port: 80
   competitor3a:
     container_name: competitor3a
@@ -47,6 +59,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor3a.rule: HostRegexp(`{_:competitor-6513-module-a\..*}`)
+      traefik.http.routers.competitor3a.tls: true
+      traefik.http.routers.competitor3a.entrypoint: websecure
       traefik.http.services.competitor3a.loadbalancer.server.port: 80
   competitor3b:
     container_name: competitor3b
@@ -54,6 +68,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor3b.rule: HostRegexp(`{_:competitor-6513-module-b\..*}`)
+      traefik.http.routers.competitor3b.tls: true
+      traefik.http.routers.competitor3b.entrypoint: websecure
       traefik.http.services.competitor3b.loadbalancer.server.port: 80
   competitor3c:
     container_name: competitor3c
@@ -61,6 +77,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor3c.rule: HostRegexp(`{_:competitor-6513-module-c\..*}`)
+      traefik.http.routers.competitor3c.tls: true
+      traefik.http.routers.competitor3c.entrypoint: websecure
       traefik.http.services.competitor3c.loadbalancer.server.port: 80
   competitor4a:
     container_name: competitor4a
@@ -68,6 +86,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor4a.rule: HostRegexp(`{_:competitor-2494-module-a\..*}`)
+      traefik.http.routers.competitor4a.tls: true
+      traefik.http.routers.competitor4a.entrypoint: websecure
       traefik.http.services.competitor4a.loadbalancer.server.port: 80
   competitor4b:
     container_name: competitor4b
@@ -75,6 +95,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor4b.rule: HostRegexp(`{_:competitor-2494-module-b\..*}`)
+      traefik.http.routers.competitor4b.tls: true
+      traefik.http.routers.competitor4b.entrypoint: websecure
       traefik.http.services.competitor4b.loadbalancer.server.port: 80
   competitor4c:
     container_name: competitor4c
@@ -82,6 +104,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor4c.rule: HostRegexp(`{_:competitor-2494-module-c\..*}`)
+      traefik.http.routers.competitor4c.tls: true
+      traefik.http.routers.competitor4c.entrypoint: websecure
       traefik.http.services.competitor4c.loadbalancer.server.port: 80
   competitor5a:
     container_name: competitor5a
@@ -89,6 +113,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor5a.rule: HostRegexp(`{_:competitor-6455-module-a\..*}`)
+      traefik.http.routers.competitor5a.tls: true
+      traefik.http.routers.competitor5a.entrypoint: websecure
       traefik.http.services.competitor5a.loadbalancer.server.port: 80
   competitor5b:
     container_name: competitor5b
@@ -96,6 +122,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor5b.rule: HostRegexp(`{_:competitor-6455-module-b\..*}`)
+      traefik.http.routers.competitor5b.tls: true
+      traefik.http.routers.competitor5b.entrypoint: websecure
       traefik.http.services.competitor5b.loadbalancer.server.port: 80
   competitor5c:
     container_name: competitor5c
@@ -103,6 +131,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor5c.rule: HostRegexp(`{_:competitor-6455-module-c\..*}`)
+      traefik.http.routers.competitor5c.tls: true
+      traefik.http.routers.competitor5c.entrypoint: websecure
       traefik.http.services.competitor5c.loadbalancer.server.port: 80
   competitor6a:
     container_name: competitor6a
@@ -110,6 +140,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor6a.rule: HostRegexp(`{_:competitor-9546-module-a\..*}`)
+      traefik.http.routers.competitor6a.tls: true
+      traefik.http.routers.competitor6a.entrypoint: websecure
       traefik.http.services.competitor6a.loadbalancer.server.port: 80
   competitor6b:
     container_name: competitor6b
@@ -117,6 +149,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor6b.rule: HostRegexp(`{_:competitor-9546-module-b\..*}`)
+      traefik.http.routers.competitor6b.tls: true
+      traefik.http.routers.competitor6b.entrypoint: websecure
       traefik.http.services.competitor6b.loadbalancer.server.port: 80
   competitor6c:
     container_name: competitor6c
@@ -124,6 +158,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor6c.rule: HostRegexp(`{_:competitor-9546-module-c\..*}`)
+      traefik.http.routers.competitor6c.tls: true
+      traefik.http.routers.competitor6c.entrypoint: websecure
       traefik.http.services.competitor6c.loadbalancer.server.port: 80
   competitor9a:
     container_name: competitor9a
@@ -131,6 +167,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor9a.rule: HostRegexp(`{_:competitor-9999-module-a\..*}`)
+      traefik.http.routers.competitor9a.tls: true
+      traefik.http.routers.competitor9a.entrypoint: websecure
       traefik.http.services.competitor9a.loadbalancer.server.port: 80
   competitor9b:
     container_name: competitor9b
@@ -138,6 +176,8 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor9b.rule: HostRegexp(`{_:competitor-9999-module-b\..*}`)
+      traefik.http.routers.competitor9b.tls: true
+      traefik.http.routers.competitor9b.entrypoint: websecure
       traefik.http.services.competitor9b.loadbalancer.server.port: 80
   competitor9c:
     container_name: competitor9c
@@ -145,4 +185,6 @@ services:
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor9c.rule: HostRegexp(`{_:competitor-9999-module-c\..*}`)
+      traefik.http.routers.competitor9c.tls: true
+      traefik.http.routers.competitor9c.entrypoint: websecure
       traefik.http.services.competitor9c.loadbalancer.server.port: 80

@@ -195,6 +195,9 @@ services:
       traefik.enable: 'true'
       traefik.http.routers.pma.rule: HostRegexp(`{_:pma\..*}`)
       traefik.http.services.pma.loadbalancer.server.port: 80
+      traefik.http.routers.pma.tls: true
+      traefik.http.routers.pma.entrypoints: websecure
+
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
@@ -212,3 +215,20 @@ services:
       traefik.enable: 'true'
       traefik.http.routers.watchtower.rule: HostRegexp(`{_:watchtower\..*}`)
       traefik.http.services.watchtower.loadbalancer.server.port: 8080
+  packeton:
+    image: packeton/packeton:latest
+    container_name: packeton
+    hostname: packeton
+    environment:
+      ADMIN_USER: admin
+      ADMIN_PASSWORD: 123456 # Default password
+      ADMIN_EMAIL: admin@example.com
+      TRUSTED_PROXIES: 172.16.0.0/12
+      # Default SQLite
+      # DATABASE_URL: "mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=8&charset=utf8mb4"
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.packeton.rule: HostRegexp(`{_:packeton\..*}`)
+      traefik.http.services.packeton.loadbalancer.server.port: 80
+    volumes:
+      - ./data/packeton:/data

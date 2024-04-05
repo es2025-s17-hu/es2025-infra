@@ -8,7 +8,9 @@ docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --usern
 docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-9546 --password 9546 --email competitor-9546@httpf.hu --must-change-password=false"
 docker exec --user 1234:1000 gitea /bin/bash -c "gitea admin user create --username competitor-9999 --password 9999 --email competitor-9999@httpf.hu --must-change-password=false"
 
-pat=$(curl -X POST -H "Content-Type: application/json" -d '{"name": "PAT", "scopes": ["write:package"]}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/users/httpadmin/tokens --insecure | jq '.sha1')
+pat=$(curl -X POST -H "Content-Type: application/json" -d '{"name": "PAT1", "scopes": ["write:package"]}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/users/httpadmin/tokens --insecure | jq '.sha1')
+
+echo "PAT: $pat"
 
 curl -X POST -H "Content-Type: application/json" -d '{"username": "competitors", "private": true}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/orgs --insecure
 id=$(curl -X POST -H "Content-Type: application/json" -d '{"name": "competitors", "can_create_org_repo": true, "units_map": {"repo.actions":"read","repo.packages":"none","repo.code":"write","repo.issues":"write","repo.ext_issues":"none","repo.wiki":"admin","repo.pulls":"owner","repo.releases":"none","repo.projects":"none","repo.ext_wiki":"none"}}' -u httpadmin:kiscica17 https://gitea.dineease.com/api/v1/orgs/competitors/teams --insecure | jq '.id')
