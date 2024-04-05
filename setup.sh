@@ -28,58 +28,58 @@ curl -X PUT -H "Content-Type: application/json" -d '{"data": "httpadmin"}' -u ht
 docker login gitea.dineease.com -u httpadmin -p kiscica17
 
 docker pull nginx:latest
-docker tag nginx:latest gitea.dineease.com/competitor-4621/module-a:latest
-docker tag nginx:latest gitea.dineease.com/competitor-4621/module-b:latest
-docker tag nginx:latest gitea.dineease.com/competitor-4621/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-a-4621:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-b-4621:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-c-4621:latest
 
-docker tag nginx:latest gitea.dineease.com/competitor-7552/module-a:latest
-docker tag nginx:latest gitea.dineease.com/competitor-7552/module-b:latest
-docker tag nginx:latest gitea.dineease.com/competitor-7552/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-a-7552:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-b-7552:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-c-7552:latest
 
-docker tag nginx:latest gitea.dineease.com/competitor-6513/module-a:latest
-docker tag nginx:latest gitea.dineease.com/competitor-6513/module-b:latest
-docker tag nginx:latest gitea.dineease.com/competitor-6513/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-a-6513:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-b-6513:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-c-6513:latest
 
-docker tag nginx:latest gitea.dineease.com/competitor-2494/module-a:latest
-docker tag nginx:latest gitea.dineease.com/competitor-2494/module-b:latest
-docker tag nginx:latest gitea.dineease.com/competitor-2494/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-a-2494:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-b-2494:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-c-2494:latest
 
-docker tag nginx:latest gitea.dineease.com/competitor-6455/module-a:latest
-docker tag nginx:latest gitea.dineease.com/competitor-6455/module-b:latest
-docker tag nginx:latest gitea.dineease.com/competitor-6455/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-a-6455:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-b-6455:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-c-6455:latest
 
-docker tag nginx:latest gitea.dineease.com/competitor-9546/module-a:latest
-docker tag nginx:latest gitea.dineease.com/competitor-9546/module-b:latest
-docker tag nginx:latest gitea.dineease.com/competitor-9546/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-a-9546:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-b-9546:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-c-9546:latest
 
-docker tag nginx:latest gitea.dineease.com/competitor-9999/module-a:latest
-docker tag nginx:latest gitea.dineease.com/competitor-9999/module-b:latest
-docker tag nginx:latest gitea.dineease.com/competitor-9999/module-c:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-a-9999:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-b-9999:latest
+docker tag nginx:latest gitea.dineease.com/competitors/module-c-9999:latest
 
-docker push gitea.dineease.com/competitor-4621/module-a:latest
-docker push gitea.dineease.com/competitor-4621/module-b:latest
-docker push gitea.dineease.com/competitor-4621/module-c:latest
+docker push gitea.dineease.com/competitors/module-a-4621:latest
+docker push gitea.dineease.com/competitors/module-b-4621:latest
+docker push gitea.dineease.com/competitors/module-c-4621:latest
 
-docker push gitea.dineease.com/competitor-7552/module-a:latest
-docker push gitea.dineease.com/competitor-7552/module-b:latest
-docker push gitea.dineease.com/competitor-7552/module-c:latest
+docker push gitea.dineease.com/competitors/module-a-7552:latest
+docker push gitea.dineease.com/competitors/module-b-7552:latest
+docker push gitea.dineease.com/competitors/module-c-7552:latest
 
-docker push gitea.dineease.com/competitor-6513/module-a:latest
-docker push gitea.dineease.com/competitor-6513/module-b:latest
-docker push gitea.dineease.com/competitor-6513/module-c:latest
+docker push gitea.dineease.com/competitors/module-a-6513:latest
+docker push gitea.dineease.com/competitors/module-b-6513:latest
+docker push gitea.dineease.com/competitors/module-c-6513:latest
 
-docker push gitea.dineease.com/competitor-2494/module-a:latest
-docker push gitea.dineease.com/competitor-2494/module-b:latest
-docker push gitea.dineease.com/competitor-2494/module-c:latest
+docker push gitea.dineease.com/competitors/module-a-2494:latest
+docker push gitea.dineease.com/competitors/module-b-2494:latest
+docker push gitea.dineease.com/competitors/module-c-2494:latest
 
-docker push gitea.dineease.com/competitor-6455/module-a:latest
-docker push gitea.dineease.com/competitor-6455/module-b:latest
-docker push gitea.dineease.com/competitor-6455/module-c:latest
+docker push gitea.dineease.com/competitors/module-a-6455:latest
+docker push gitea.dineease.com/competitors/module-b-6455:latest
+docker push gitea.dineease.com/competitors/module-c-6455:latest
 
-docker push gitea.dineease.com/competitor-9546/module-a:latest
-docker push gitea.dineease.com/competitor-9546/module-b:latest
-docker push gitea.dineease.com/competitor-9546/module-c:latest
+docker push gitea.dineease.com/competitors/module-a-9546:latest
+docker push gitea.dineease.com/competitors/module-b-9546:latest
+docker push gitea.dineease.com/competitors/module-c-9546:latest
 
-docker push gitea.dineease.com/competitor-9999/module-a:latest
-docker push gitea.dineease.com/competitor-9999/module-b:latest
-docker push gitea.dineease.com/competitor-9999/module-c:latest
+docker push gitea.dineease.com/competitors/module-a-9999:latest
+docker push gitea.dineease.com/competitors/module-b-9999:latest
+docker push gitea.dineease.com/competitors/module-c-9999:latest
