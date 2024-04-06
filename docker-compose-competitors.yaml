@@ -1,6 +1,7 @@
 services:
   competitor1a:
     container_name: competitor1a
+    restart: always
     image: gitea.dineease.com/competitors/module-a-4621:latest
     labels:
       traefik.enable: 'true'
@@ -10,6 +11,7 @@ services:
       traefik.http.services.competitor1a.loadbalancer.server.port: 80
   competitor1b:
     container_name: competitor1b
+    restart: always
     image: gitea.dineease.com/competitors/module-b-4621:latest
     labels:
       traefik.enable: 'true'
@@ -19,6 +21,7 @@ services:
       traefik.http.services.competitor1b.loadbalancer.server.port: 80
   competitor1c:
     container_name: competitor1c
+    restart: always
     image: gitea.dineease.com/competitors/module-c-4621:latest
     labels:
       traefik.enable: 'true'
@@ -28,6 +31,7 @@ services:
       traefik.http.services.competitor1c.loadbalancer.server.port: 80
   competitor2a:
     container_name: competitor2a
+    restart: always
     image: gitea.dineease.com/competitors/module-a-7552:latest
     labels:
       traefik.enable: 'true'
@@ -37,6 +41,7 @@ services:
       traefik.http.services.competitor2a.loadbalancer.server.port: 80
   competitor2b:
     container_name: competitor2b
+    restart: always
     image: gitea.dineease.com/competitors/module-b-7552:latest
     labels:
       traefik.enable: 'true'
@@ -46,6 +51,7 @@ services:
       traefik.http.services.competitor2b.loadbalancer.server.port: 80
   competitor2c:
     container_name: competitor2c
+    restart: always
     image: gitea.dineease.com/competitors/module-c-7552:latest
     labels:
       traefik.enable: 'true'
@@ -55,6 +61,7 @@ services:
       traefik.http.services.competitor2c.loadbalancer.server.port: 80
   competitor3a:
     container_name: competitor3a
+    restart: always
     image: gitea.dineease.com/competitors/module-a-6513:latest
     labels:
       traefik.enable: 'true'
@@ -64,6 +71,7 @@ services:
       traefik.http.services.competitor3a.loadbalancer.server.port: 80
   competitor3b:
     container_name: competitor3b
+    restart: always
     image: gitea.dineease.com/competitors/module-b-6513:latest
     labels:
       traefik.enable: 'true'
@@ -73,6 +81,7 @@ services:
       traefik.http.services.competitor3b.loadbalancer.server.port: 80
   competitor3c:
     container_name: competitor3c
+    restart: always
     image: gitea.dineease.com/competitors/module-c-6513:latest
     labels:
       traefik.enable: 'true'
@@ -82,6 +91,7 @@ services:
       traefik.http.services.competitor3c.loadbalancer.server.port: 80
   competitor4a:
     container_name: competitor4a
+    restart: always
     image: gitea.dineease.com/competitors/module-a-2494:latest
     labels:
       traefik.enable: 'true'
@@ -91,6 +101,7 @@ services:
       traefik.http.services.competitor4a.loadbalancer.server.port: 80
   competitor4b:
     container_name: competitor4b
+    restart: always
     image: gitea.dineease.com/competitors/module-b-2494:latest
     labels:
       traefik.enable: 'true'
@@ -100,6 +111,7 @@ services:
       traefik.http.services.competitor4b.loadbalancer.server.port: 80
   competitor4c:
     container_name: competitor4c
+    restart: always
     image: gitea.dineease.com/competitors/module-c-2494:latest
     labels:
       traefik.enable: 'true'
@@ -109,6 +121,7 @@ services:
       traefik.http.services.competitor4c.loadbalancer.server.port: 80
   competitor5a:
     container_name: competitor5a
+    restart: always
     image: gitea.dineease.com/competitors/module-a-6455:latest
     labels:
       traefik.enable: 'true'
@@ -118,6 +131,7 @@ services:
       traefik.http.services.competitor5a.loadbalancer.server.port: 80
   competitor5b:
     container_name: competitor5b
+    restart: always
     image: gitea.dineease.com/competitors/module-b-6455:latest
     labels:
       traefik.enable: 'true'
@@ -127,6 +141,7 @@ services:
       traefik.http.services.competitor5b.loadbalancer.server.port: 80
   competitor5c:
     container_name: competitor5c
+    restart: always
     image: gitea.dineease.com/competitors/module-c-6455:latest
     labels:
       traefik.enable: 'true'
@@ -136,6 +151,7 @@ services:
       traefik.http.services.competitor5c.loadbalancer.server.port: 80
   competitor6a:
     container_name: competitor6a
+    restart: always
     image: gitea.dineease.com/competitors/module-a-9546:latest
     labels:
       traefik.enable: 'true'
@@ -145,6 +161,7 @@ services:
       traefik.http.services.competitor6a.loadbalancer.server.port: 80
   competitor6b:
     container_name: competitor6b
+    restart: always
     image: gitea.dineease.com/competitors/module-b-9546:latest
     labels:
       traefik.enable: 'true'
@@ -154,6 +171,7 @@ services:
       traefik.http.services.competitor6b.loadbalancer.server.port: 80
   competitor6c:
     container_name: competitor6c
+    restart: always
     image: gitea.dineease.com/competitors/module-c-9546:latest
     labels:
       traefik.enable: 'true'
@@ -163,6 +181,7 @@ services:
       traefik.http.services.competitor6c.loadbalancer.server.port: 80
   competitor9a:
     container_name: competitor9a
+    restart: always
     image: gitea.dineease.com/competitors/module-a-9999:latest
     labels:
       traefik.enable: 'true'
@@ -172,6 +191,7 @@ services:
       traefik.http.services.competitor9a.loadbalancer.server.port: 80
   competitor9b:
     container_name: competitor9b
+    restart: always
     image: gitea.dineease.com/competitors/module-b-9999:latest
     labels:
       traefik.enable: 'true'
@@ -181,6 +201,7 @@ services:
       traefik.http.services.competitor9b.loadbalancer.server.port: 80
   competitor9c:
     container_name: competitor9c
+    restart: always
     image: gitea.dineease.com/competitors/module-c-9999:latest
     labels:
       traefik.enable: 'true'
