@@ -442,7 +442,7 @@ services:
   competitor9e:
     container_name: competitor9e
     restart: always
-    image: gitea.eineease.com/competitors/module-e-9:latest
+    image: gitea.dineease.com/competitors/module-e-9:latest
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor9e.rule: HostRegexp(`{_:module-e-9\..*}`)
