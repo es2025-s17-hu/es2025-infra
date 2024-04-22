@@ -2,77 +2,99 @@ services:
   competitor1-backend:
     container_name: competitor1-backend
     environment:
-      DB_NAME: competitor-4621
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DB_NAME: competitor-1
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor1-backend.rule: HostRegexp(`{_:competitor-4621-solution\..*}`)
+      traefik.http.routers.competitor1-backend.rule: HostRegexp(`{_:module-c-1-solution\..*}`)
       traefik.http.routers.competitor1-backend.tls: true
       traefik.http.routers.competitor1-backend.entrypoints: websecure
       traefik.http.services.competitor1-backend.loadbalancer.server.port: 5000
   competitor2-backend:
     container_name: competitor2-backend
     environment:
-      DB_NAME: competitor-7552
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DB_NAME: competitor-2
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor2-backend.rule: HostRegexp(`{_:competitor-7552-solution\..*}`)
+      traefik.http.routers.competitor2-backend.rule: HostRegexp(`{_:module-c-2-solution\..*}`)
       traefik.http.routers.competitor2-backend.tls: true
       traefik.http.routers.competitor2-backend.entrypoints: websecure
       traefik.http.services.competitor2-backend.loadbalancer.server.port: 5000
   competitor3-backend:
     container_name: competitor3-backend
     environment:
-      DB_NAME: competitor-6513
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DB_NAME: competitor-3
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor3-backend.rule: HostRegexp(`{_:competitor-6513-solution\..*}`)
+      traefik.http.routers.competitor3-backend.rule: HostRegexp(`{_:module-c-3-solution\..*}`)
       traefik.http.routers.competitor3-backend.tls: true
       traefik.http.routers.competitor3-backend.entrypoints: websecure
       traefik.http.services.competitor3-backend.loadbalancer.server.port: 5000
   competitor4-backend:
     container_name: competitor4-backend
     environment:
-      DB_NAME: competitor-2494
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DB_NAME: competitor-4
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor4-backend.rule: HostRegexp(`{_:competitor-2494-solution\..*}`)
+      traefik.http.routers.competitor4-backend.rule: HostRegexp(`{_:module-c-4-solution\..*}`)
       traefik.http.routers.competitor4-backend.tls: true
       traefik.http.routers.competitor4-backend.entrypoints: websecure
       traefik.http.services.competitor4-backend.loadbalancer.server.port: 5000
   competitor5-backend:
     container_name: competitor5-backend
     environment:
-      DB_NAME: competitor-6455
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DB_NAME: competitor-5
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor5-backend.rule: HostRegexp(`{_:competitor-6455-solution\..*}`)
+      traefik.http.routers.competitor5-backend.rule: HostRegexp(`{_:module-c-5-solution\..*}`)
       traefik.http.routers.competitor5-backend.tls: true
       traefik.http.routers.competitor5-backend.entrypoints: websecure
       traefik.http.services.competitor5-backend.loadbalancer.server.port: 5000
   competitor6-backend:
     container_name: competitor6-backend
     environment:
-      DB_NAME: competitor-9546
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DB_NAME: competitor-6
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor6-backend.rule: HostRegexp(`{_:competitor-9546-solution\..*}`)
+      traefik.http.routers.competitor6-backend.rule: HostRegexp(`{_:module-c-6-solution\..*}`)
       traefik.http.routers.competitor6-backend.tls: true
       traefik.http.routers.competitor6-backend.entrypoints: websecure
       traefik.http.services.competitor6-backend.loadbalancer.server.port: 5000
+  competitor7-backend:
+    container_name: competitor7-backend
+    environment:
+      DB_NAME: competitor-7
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r3-backend:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor7-backend.rule: HostRegexp(`{_:module-c-7-solution\..*}`)
+      traefik.http.routers.competitor7-backend.tls: true
+      traefik.http.routers.competitor7-backend.entrypoints: websecure
+      traefik.http.services.competitor7-backend.loadbalancer.server.port: 5000
+  competitor8-backend:
+    container_name: competitor8-backend
+    environment:
+      DB_NAME: competitor-8
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r3-backend:latest
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.competitor8-backend.rule: HostRegexp(`{_:module-c-8-solution\..*}`)
+      traefik.http.routers.competitor8-backend.tls: true
+      traefik.http.routers.competitor8-backend.entrypoints: websecure
+      traefik.http.services.competitor8-backend.loadbalancer.server.port: 5000
   competitor9-backend:
     container_name: competitor9-backend
     environment:
-      DB_NAME: competitor-9999
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DB_NAME: competitor-9
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor9-backend.rule: HostRegexp(`{_:competitor-9999-solution\..*}`)
+      traefik.http.routers.competitor9-backend.rule: HostRegexp(`{_:module-c-9-solution\..*}`)
       traefik.http.routers.competitor9-backend.tls: true
       traefik.http.routers.competitor9-backend.entrypoints: websecure
       traefik.http.services.competitor9-backend.loadbalancer.server.port: 5000

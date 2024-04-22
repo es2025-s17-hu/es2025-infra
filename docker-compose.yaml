@@ -172,7 +172,7 @@ services:
     image: mysql:8
     restart: always
     environment:
-       - MYSQL_ROOT_PASSWORD=root
+       - MYSQL_ROOT_PASSWORD=kiscica17
     volumes:
       - ./data/competitor-mysql:/var/lib/mysql
       - "./config/competitor_mysql/competitors.sql:/docker-entrypoint-initdb.d/1.sql"
