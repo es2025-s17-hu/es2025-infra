@@ -3,7 +3,8 @@ services:
     container_name: competitor1-backend
     environment:
       DB_NAME: competitor-1
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-1
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r3-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor1-backend.rule: HostRegexp(`{_:module-c-1-solution\..*}`)
@@ -14,7 +15,8 @@ services:
     container_name: competitor2-backend
     environment:
       DB_NAME: competitor-2
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-2
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r3-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor2-backend.rule: HostRegexp(`{_:module-c-2-solution\..*}`)
@@ -25,7 +27,8 @@ services:
     container_name: competitor3-backend
     environment:
       DB_NAME: competitor-3
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-3
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r3-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor3-backend.rule: HostRegexp(`{_:module-c-3-solution\..*}`)
@@ -36,7 +39,8 @@ services:
     container_name: competitor4-backend
     environment:
       DB_NAME: competitor-4
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-4
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r3-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor4-backend.rule: HostRegexp(`{_:module-c-4-solution\..*}`)
@@ -47,7 +51,8 @@ services:
     container_name: competitor5-backend
     environment:
       DB_NAME: competitor-5
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-5
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r3-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor5-backend.rule: HostRegexp(`{_:module-c-5-solution\..*}`)
@@ -58,7 +63,8 @@ services:
     container_name: competitor6-backend
     environment:
       DB_NAME: competitor-6
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-6
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r3-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor6-backend.rule: HostRegexp(`{_:module-c-6-solution\..*}`)
@@ -69,7 +75,8 @@ services:
     container_name: competitor7-backend
     environment:
       DB_NAME: competitor-7
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-7
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r3-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor7-backend.rule: HostRegexp(`{_:module-c-7-solution\..*}`)
@@ -80,7 +87,8 @@ services:
     container_name: competitor8-backend
     environment:
       DB_NAME: competitor-8
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-8
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r3-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor8-backend.rule: HostRegexp(`{_:module-c-8-solution\..*}`)
@@ -91,7 +99,8 @@ services:
     container_name: competitor9-backend
     environment:
       DB_NAME: competitor-9
-    image: ghcr.io/es2025-s17-hu/es2025-s17-r2-dinease-backend/es2025-s17-hu-r2-backend:latest
+      DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-9
+    image: ghcr.io/es2025-s17-hu/es2025-s17-r3-backend/es2025-s17-hu-r3-backend:latest
     labels:
       traefik.enable: 'true'
       traefik.http.routers.competitor9-backend.rule: HostRegexp(`{_:module-c-9-solution\..*}`)
