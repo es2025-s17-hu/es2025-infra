@@ -145,10 +145,10 @@ services:
     image: gitea.dineease.com/competitors/module-e-3:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor3d.rule: HostRegexp(`{_:module-e-3\..*}`)
-      traefik.http.routers.competitor3d.tls: true
-      traefik.http.routers.competitor3d.entrypoints: websecure
-      traefik.http.services.competitor3d.loadbalancer.server.port: 80
+      traefik.http.routers.competitor3e.rule: HostRegexp(`{_:module-e-3\..*}`)
+      traefik.http.routers.competitor3e.tls: true
+      traefik.http.routers.competitor3e.entrypoints: websecure
+      traefik.http.services.competitor3e.loadbalancer.server.port: 80
   competitor4a:
     container_name: competitor4a
     restart: always
@@ -195,10 +195,10 @@ services:
     image: gitea.dineease.com/competitors/module-e-4:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor4d.rule: HostRegexp(`{_:module-e-4\..*}`)
-      traefik.http.routers.competitor4d.tls: true
-      traefik.http.routers.competitor4d.entrypoints: websecure
-      traefik.http.services.competitor4d.loadbalancer.server.port: 80
+      traefik.http.routers.competitor4e.rule: HostRegexp(`{_:module-e-4\..*}`)
+      traefik.http.routers.competitor4e.tls: true
+      traefik.http.routers.competitor4e.entrypoints: websecure
+      traefik.http.services.competitor4e.loadbalancer.server.port: 80
   competitor5a:
     container_name: competitor5a
     restart: always
@@ -245,10 +245,10 @@ services:
     image: gitea.dineease.com/competitors/module-e-5:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor5d.rule: HostRegexp(`{_:module-e-5\..*}`)
-      traefik.http.routers.competitor5d.tls: true
-      traefik.http.routers.competitor5d.entrypoints: websecure
-      traefik.http.services.competitor5d.loadbalancer.server.port: 80
+      traefik.http.routers.competitor5e.rule: HostRegexp(`{_:module-e-5\..*}`)
+      traefik.http.routers.competitor5e.tls: true
+      traefik.http.routers.competitor5e.entrypoints: websecure
+      traefik.http.services.competitor5e.loadbalancer.server.port: 80
   competitor6a:
     container_name: competitor6a
     restart: always
@@ -295,10 +295,10 @@ services:
     image: gitea.dineease.com/competitors/module-e-6:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor6d.rule: HostRegexp(`{_:module-e-6\..*}`)
-      traefik.http.routers.competitor6d.tls: true
-      traefik.http.routers.competitor6d.entrypoints: websecure
-      traefik.http.services.competitor6d.loadbalancer.server.port: 80
+      traefik.http.routers.competitor6e.rule: HostRegexp(`{_:module-e-6\..*}`)
+      traefik.http.routers.competitor6e.tls: true
+      traefik.http.routers.competitor6e.entrypoints: websecure
+      traefik.http.services.competitor6e.loadbalancer.server.port: 80
   competitor7a:
     container_name: competitor7a
     restart: always
@@ -345,10 +345,10 @@ services:
     image: gitea.dineease.com/competitors/module-e-7:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor7d.rule: HostRegexp(`{_:module-e-7\..*}`)
-      traefik.http.routers.competitor7d.tls: true
-      traefik.http.routers.competitor7d.entrypoints: websecure
-      traefik.http.services.competitor7d.loadbalancer.server.port: 80
+      traefik.http.routers.competitor7e.rule: HostRegexp(`{_:module-e-7\..*}`)
+      traefik.http.routers.competitor7e.tls: true
+      traefik.http.routers.competitor7e.entrypoints: websecure
+      traefik.http.services.competitor7e.loadbalancer.server.port: 80
   competitor8a:
     container_name: competitor8a
     restart: always
@@ -395,10 +395,10 @@ services:
     image: gitea.dineease.com/competitors/module-e-8:latest
     labels:
       traefik.enable: 'true'
-      traefik.http.routers.competitor8d.rule: HostRegexp(`{_:module-e-8\..*}`)
-      traefik.http.routers.competitor8d.tls: true
-      traefik.http.routers.competitor8d.entrypoints: websecure
-      traefik.http.services.competitor8d.loadbalancer.server.port: 80
+      traefik.http.routers.competitor8e.rule: HostRegexp(`{_:module-e-8\..*}`)
+      traefik.http.routers.competitor8e.tls: true
+      traefik.http.routers.competitor8e.entrypoints: websecure
+      traefik.http.services.competitor8e.loadbalancer.server.port: 80
   competitor9a:
     container_name: competitor9a
     restart: always
