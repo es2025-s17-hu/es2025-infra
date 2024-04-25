@@ -1,6 +1,7 @@
 services:
   competitor1-backend:
     container_name: competitor1-backend
+    restart: always
     environment:
       DB_NAME: competitor-1
       DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-1
@@ -13,6 +14,7 @@ services:
       traefik.http.services.competitor1-backend.loadbalancer.server.port: 5000
   competitor2-backend:
     container_name: competitor2-backend
+    restart: always
     environment:
       DB_NAME: competitor-2
       DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-2
@@ -25,6 +27,7 @@ services:
       traefik.http.services.competitor2-backend.loadbalancer.server.port: 5000
   competitor3-backend:
     container_name: competitor3-backend
+    restart: always
     environment:
       DB_NAME: competitor-3
       DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-3
@@ -37,6 +40,7 @@ services:
       traefik.http.services.competitor3-backend.loadbalancer.server.port: 5000
   competitor4-backend:
     container_name: competitor4-backend
+    restart: always
     environment:
       DB_NAME: competitor-4
       DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-4
@@ -49,6 +53,7 @@ services:
       traefik.http.services.competitor4-backend.loadbalancer.server.port: 5000
   competitor5-backend:
     container_name: competitor5-backend
+    restart: always
     environment:
       DB_NAME: competitor-5
       DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-5
@@ -61,6 +66,7 @@ services:
       traefik.http.services.competitor5-backend.loadbalancer.server.port: 5000
   competitor6-backend:
     container_name: competitor6-backend
+    restart: always
     environment:
       DB_NAME: competitor-6
       DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-6
@@ -73,6 +79,7 @@ services:
       traefik.http.services.competitor6-backend.loadbalancer.server.port: 5000
   competitor7-backend:
     container_name: competitor7-backend
+    restart: always
     environment:
       DB_NAME: competitor-7
       DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-7
@@ -85,6 +92,7 @@ services:
       traefik.http.services.competitor7-backend.loadbalancer.server.port: 5000
   competitor8-backend:
     container_name: competitor8-backend
+    restart: always
     environment:
       DB_NAME: competitor-8
       DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-8
@@ -97,6 +105,7 @@ services:
       traefik.http.services.competitor8-backend.loadbalancer.server.port: 5000
   competitor9-backend:
     container_name: competitor9-backend
+    restart: always
     environment:
       DB_NAME: competitor-9
       DATABASE_URL: mysql://root:kiscica17@db.dineease.com:3306/competitor-9
