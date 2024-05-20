@@ -22,7 +22,7 @@ A Docker környezet az alábbi konténereket futtatja:
 ## Installation
 
 1. Issue the `docker compose up -d` command first.
-2. Open  
+2. ... 
 
 
 
